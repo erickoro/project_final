@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, ScrollView, Alert, TouchableOpacity, ActivityIndicator, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  ScrollView,
+  Alert,
+  TouchableOpacity,
+  ActivityIndicator,
+  Image,
+} from "react-native";
 import Axios from "axios";
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "react-native-paper";
 
 import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook
 
-import { stylesRegister } from "./RegisterComponent.styles";
-import { API_URL } from "../../Constants/API";
+import { stylesRegister } from "./RegisterScreen.styles";
+import { API_URL } from "../../constant/API";
 
 const RegisterScreen = () => {
   const [formData, setFormData] = useState({
@@ -56,7 +66,11 @@ const RegisterScreen = () => {
       {/* <Card style={stylesRegister.imageCard}>
         <Card.Cover source={require("../../assets/rock-paper-scissors.png")} style={stylesRegister.imageSize} />
       </Card> */}
-      <Image source={require("../../assets/rock-paper-scissors.png")} style={stylesRegister.imageSize} resizeMode="contain" />
+      <Image
+        source={require("../../../assets/rock-paper-scissors.png")}
+        style={stylesRegister.imageSize}
+        resizeMode="contain"
+      />
       <Text style={stylesRegister.title}>Daftar Akun</Text>
       <View style={stylesRegister.formContainer}>
         <TextInput
@@ -95,9 +109,12 @@ const RegisterScreen = () => {
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
           // <Button title="Login" onPress={handleLogin} />
-          <TouchableOpacity onPress={handleSubmit} style={stylesRegister.button}>
+          <TouchableOpacity
+            onPress={handleSubmit}
+            style={stylesRegister.button}
+          >
             <LinearGradient
-              colors={['#4CAF50', '#2E7D32']} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
+              colors={["#4CAF50", "#2E7D32"]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
               start={{ x: 0, y: 0.5 }}
               end={{ x: 1, y: 0.5 }}
               style={stylesRegister.gradient}

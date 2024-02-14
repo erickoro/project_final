@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image, Button, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  Button,
+  Dimensions,
+} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
 import { Card } from "react-native-paper";
-import { stylesMain } from './MainComponent.styles';
-import { LinearGradient } from 'expo-linear-gradient';
+import { stylesMain } from "./GameScreen.styles";
+import { LinearGradient } from "expo-linear-gradient";
 
 const GameScreen = ({ navigation }) => {
   const [playerChoice, setPlayerChoice] = useState(null);
@@ -20,9 +28,9 @@ const GameScreen = ({ navigation }) => {
   }, []);
 
   const choices = [
-    { name: "batu", image: require("../../assets/batu.png") },
-    { name: "gunting", image: require("../../assets/gunting.png") },
-    { name: "kertas", image: require("../../assets/kertas.png") },
+    { name: "batu", image: require("../../../assets/batu.png") },
+    { name: "gunting", image: require("../../../assets/gunting.png") },
+    { name: "kertas", image: require("../../../assets/kertas.png") },
   ];
 
   const handlePlayerChoice = (choice) => {
@@ -56,13 +64,21 @@ const GameScreen = ({ navigation }) => {
   return (
     <View style={stylesMain.container}>
       <Text style={stylesMain.fullName}>Hallo, {fullName}</Text>
-      <Text style={stylesMain.textKalimat}>Mari Bermain, Kalahkan lawanmu !!!</Text>
+      <Text style={stylesMain.textKalimat}>
+        Mari Bermain, Kalahkan lawanmu !!!
+      </Text>
       <Text style={stylesMain.title}>Batu Gunting Kertas</Text>
       <View style={stylesMain.choicesContainer}>
         {choices.map((choice) => (
-          <TouchableOpacity key={choice.name} onPress={() => handlePlayerChoice(choice.name)}>
+          <TouchableOpacity
+            key={choice.name}
+            onPress={() => handlePlayerChoice(choice.name)}
+          >
             <Card style={stylesMain.choiceCard}>
-              <Card.Cover source={choice.image} style={stylesMain.choiceImage} />
+              <Card.Cover
+                source={choice.image}
+                style={stylesMain.choiceImage}
+              />
             </Card>
           </TouchableOpacity>
         ))}
@@ -70,7 +86,9 @@ const GameScreen = ({ navigation }) => {
       <View style={stylesMain.resultContainer}>
         {playerChoice && computerChoice && (
           <View>
-            <Text style={stylesMain.resultText}>Your choice: {playerChoice}</Text>
+            <Text style={stylesMain.resultText}>
+              Your choice: {playerChoice}
+            </Text>
             <Text style={stylesMain.resultText}>
               Computer's choice: {computerChoice}
             </Text>
@@ -79,10 +97,10 @@ const GameScreen = ({ navigation }) => {
         )}
       </View>
       {/* <Button title="Logout" onPress={handleLogout} /> */}
-      
+
       <TouchableOpacity onPress={handleLogout} style={stylesMain.button}>
         <LinearGradient
-          colors={['#4CAF50', '#2E7D32']} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
+          colors={["#4CAF50", "#2E7D32"]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
           start={{ x: 0, y: 0.5 }}
           end={{ x: 1, y: 0.5 }}
           style={stylesMain.gradient}
@@ -90,7 +108,6 @@ const GameScreen = ({ navigation }) => {
           <Text style={stylesMain.buttonText}>Logout</Text>
         </LinearGradient>
       </TouchableOpacity>
-      
     </View>
   );
 };

@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  TextInput,
-  Button,
-  Text,
-  Alert,
-  ActivityIndicator,
-  TouchableOpacity,
-  Image
-} from "react-native";
 import axios from "axios";
-import { LinearGradient } from 'expo-linear-gradient';
-import { Card } from "react-native-paper";
+import { LinearGradient } from "expo-linear-gradient";
+import React, { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
 import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook
 
-import { API_URL } from "../../Constants/API";
-import { stylesLogin } from "./LoginComponent.styles";
-import { mockLoginData } from "../../Fixtures/mockData";
+import { API_URL } from "../../constant/API";
+import { stylesLogin } from "./LoginScreen.styles";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -55,7 +52,7 @@ const LoginScreen = () => {
 
       // Save user's fullName to AsyncStorage
       await AsyncStorage.setItem("fullName", response.data.fullName);
-      
+
       // kalo mau pake mock
       // await AsyncStorage.setItem("fullName", fullName);
 
@@ -78,7 +75,11 @@ const LoginScreen = () => {
       {/* <Card style={stylesLogin.imageCard}>
         <Card.Cover source={require("../../assets/rock-paper-scissors.png")} style={stylesLogin.imageSize} />
       </Card> */}
-      <Image source={require("../../assets/rock-paper-scissors.png")} style={stylesLogin.imageSize} resizeMode="contain" />
+      <Image
+        source={require("../../../assets/rock-paper-scissors.png")}
+        style={stylesLogin.imageSize}
+        resizeMode="contain"
+      />
       <Text style={stylesLogin.label}>Email:</Text>
       <TextInput
         style={stylesLogin.input}
@@ -100,7 +101,7 @@ const LoginScreen = () => {
         // <Button title="Login" onPress={handleLogin} />
         <TouchableOpacity onPress={handleLogin} style={stylesLogin.button}>
           <LinearGradient
-            colors={['#4CAF50', '#2E7D32']} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
+            colors={["#4CAF50", "#2E7D32"]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
             start={{ x: 0, y: 0.5 }}
             end={{ x: 1, y: 0.5 }}
             style={stylesLogin.gradient}
