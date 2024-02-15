@@ -1,20 +1,33 @@
-import { Dimensions} from 'react-native';
+import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 export const stylesRegister = {
+  background: {
+    width: 0,
+    height: 0,
+    backgroundColor: "transparent",
+    borderStyle: "solid",
+    borderRightWidth: windowWidth,
+    borderTopWidth: windowHeight * 0.3,
+    borderRightColor: "transparent",
+    borderTopColor: "#5AB266",
+    position: "absolute",
+    top: 0,
+  },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 20,
-    backgroundColor: '#4B5320', // Green Army
+    backgroundColor: "white", // Green Army
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    color: '#FFFFFF', // White
+    color: "#1E1E1E", // White
   },
   formContainer: {
     width: "80%",
@@ -26,36 +39,32 @@ export const stylesRegister = {
     paddingHorizontal: 10,
     paddingVertical: 8,
     marginBottom: 10,
-    backgroundColor: '#F0FFF0', // Honeydew
+    backgroundColor: "#E8F0FE", // Honeydew
   },
   loginText: {
     marginTop: 20,
-    color: '#FFFFFF', // White
+    color: "#1E1E1E", // White
   },
   loginLink: {
-    color: '#00FF00', // Lime
+    color: "#FFCA28", // Lime
     textDecorationLine: "underline",
   },
   button: {
     borderRadius: 25,
-    overflow: 'hidden', // Untuk memastikan gradient tetap di dalam batas border radius
-    // alignItems: "center",
-    // marginTop: 20,
-    // top: '25%',
+    overflow: "hidden",
   },
   gradient: {
-    // width: 200,
     height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     fontSize: 16,
-    color: 'white',
+    color: "white",
   },
   imageSize: {
     width: 200,
     height: 200,
-    marginBottom: '20%',
+    marginVertical: "10%",
   },
 };

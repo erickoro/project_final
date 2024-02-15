@@ -4,56 +4,58 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export const stylesLogin = {
+  background: {
+    width: 0,
+    height: 0,
+    backgroundColor: "transparent",
+    borderStyle: "solid",
+    borderRightWidth: windowWidth,
+    borderTopWidth: windowHeight * 0.3,
+    borderRightColor: "transparent",
+    borderTopColor: "#5AB266",
+    position: "absolute",
+    top: 0,
+  },
+  formContainer: {
+    width: "80%",
+    alignItems: "stretch",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
   container: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white", // Green Army
-    paddingVertical: 20,
-  },
-  header: {
     flex: 1,
-    alignItems: "center",
-  },
-  backgroundBottom: {
-    height: "40%",
-    width: "100%",
-    background: "#5AB266",
-    position: "absolute",
-    // transform: [{ rotate: "-24deg" }],
-    borderRadius: 10,
-    bottom: -10,
-    zIndex: -1,
+    backgroundColor: "white",
   },
   label: {
     marginBottom: 5,
-    color: "#1E1E1E",
-    fontWeight: "bold",
+    color: "#1E1E1E", // White
   },
   input: {
-    width: "80%",
-    height: 40,
-    borderColor: "gray",
     borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-    backgroundColor: "#F0FFF0", // Honeydew
-    color: "#000000", // Black
+    borderColor: "#ccc",
     borderRadius: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    backgroundColor: "#F0FFF0", // Honeydew
+    marginBottom: 10,
   },
   registerText: {
     marginTop: 20,
-    color: "#1E1E1E", // White
+    color: "#1E1E1E",
+    alignSelf: "center",
   },
   registerLink: {
-    color: "#00FF00", // Lime
+    color: "#00FF00",
     textDecorationLine: "underline",
   },
   button: {
     borderRadius: 25,
-    overflow: "hidden", // Untuk memastikan gradient tetap di dalam batas border radius
-    // marginTop: 20,
-    // top: '25%',
+    overflow: "hidden",
   },
   gradient: {
     width: 200,

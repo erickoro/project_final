@@ -1,22 +1,10 @@
-import axios from "axios";
-import { LinearGradient } from "expo-linear-gradient";
-import React, { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Alert,
-  Image,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import React from "react";
+import { Image, Text, View } from "react-native";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 
-import { API_URL } from "../../constant/API";
-import { styles } from "./HomeScreen.styles";
 import GradientButton from "../../components/GradientButton";
+import { styles } from "./HomeScreen.styles";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -42,7 +30,11 @@ const HomeScreen = () => {
       </View>
       <View style={styles.buttonContainer}>
         <GradientButton action={goToLogin} text="Login" color="yellow" />
-        <GradientButton action={goToLogin} text="Register" color="green" />
+        <GradientButton
+          action={goToRegister}
+          text="Register"
+          color="flatgreen"
+        />
       </View>
     </View>
   );

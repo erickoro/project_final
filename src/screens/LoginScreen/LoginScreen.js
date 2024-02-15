@@ -60,35 +60,38 @@ const LoginScreen = () => {
 
   return (
     <View style={stylesLogin.container}>
-      <View style={stylesLogin.header}>
-        <Text>Hello!</Text>
-        <Text>Enjoy Rock, Paper, Scissors, Shoot!</Text>
-      </View>
+      <View style={stylesLogin.background} />
       <Image
         source={require("../../../assets/rock-paper-scissors.svg")}
         style={stylesLogin.imageSize}
         resizeMode="contain"
       />
-      <View>
-        <Text style={stylesLogin.label}>Email:</Text>
-        <TextInput
-          style={stylesLogin.input}
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          placeholder="Enter your email"
-        />
-        <Text style={stylesLogin.label}>Password:</Text>
-        <TextInput
-          style={stylesLogin.input}
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          placeholder="Enter your password"
-          secureTextEntry={true}
-        />
+      <Text style={stylesLogin.title}>Welcome Back!</Text>
+      <View style={stylesLogin.formContainer}>
+        <>
+          <Text style={stylesLogin.label}>Email:</Text>
+          <TextInput
+            style={stylesLogin.input}
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            placeholder="Enter your email"
+          />
+        </>
+        <>
+          <Text style={stylesLogin.label}>Password:</Text>
+          <TextInput
+            style={stylesLogin.input}
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            placeholder="Enter your password"
+            secureTextEntry={true}
+          />
+        </>
+
         {loading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <GradientButton action={handleLogin} text="Login" color="green" />
+          <GradientButton action={handleLogin} text="Login" color="yellow" />
         )}
         <Text style={stylesLogin.registerText} onPress={goToRegister}>
           Belum punya akun?{" "}
