@@ -16,6 +16,7 @@ import { useNavigation } from "@react-navigation/native"; // Import useNavigatio
 
 import { API_URL } from "../../constant/API";
 import { stylesLogin } from "./LoginScreen.styles";
+import GradientButton from "../../components/GradientButton";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -72,48 +73,42 @@ const LoginScreen = () => {
 
   return (
     <View style={stylesLogin.container}>
-      {/* <Card style={stylesLogin.imageCard}>
-        <Card.Cover source={require("../../assets/rock-paper-scissors.png")} style={stylesLogin.imageSize} />
-      </Card> */}
+      <View style={stylesLogin.header}>
+        <Text>Hello!</Text>
+        <Text>Enjoy Rock, Paper, Scissors, Shoot!</Text>
+      </View>
       <Image
         source={require("../../../assets/rock-paper-scissors.png")}
         style={stylesLogin.imageSize}
         resizeMode="contain"
       />
-      <Text style={stylesLogin.label}>Email:</Text>
-      <TextInput
-        style={stylesLogin.input}
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-        placeholder="Enter your email"
-      />
-      <Text style={stylesLogin.label}>Password:</Text>
-      <TextInput
-        style={stylesLogin.input}
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-        placeholder="Enter your password"
-        secureTextEntry={true}
-      />
-      {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : (
-        // <Button title="Login" onPress={handleLogin} />
-        <TouchableOpacity onPress={handleLogin} style={stylesLogin.button}>
-          <LinearGradient
-            colors={["#4CAF50", "#2E7D32"]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
-            start={{ x: 0, y: 0.5 }}
-            end={{ x: 1, y: 0.5 }}
-            style={stylesLogin.gradient}
-          >
-            <Text style={stylesLogin.buttonText}>Login</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-      )}
-      <Text style={stylesLogin.registerText} onPress={goToRegister}>
-        Belum punya akun?{" "}
-        <Text style={stylesLogin.registerLink}>Buat disini</Text>
-      </Text>
+      <View>
+        <Text style={stylesLogin.label}>Email:</Text>
+        <TextInput
+          style={stylesLogin.input}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          placeholder="Enter your email"
+        />
+        <Text style={stylesLogin.label}>Password:</Text>
+        <TextInput
+          style={stylesLogin.input}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          placeholder="Enter your password"
+          secureTextEntry={true}
+        />
+        {loading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : (
+          <GradientButton action={handleLogin} text="Login" color="green" />
+        )}
+        <Text style={stylesLogin.registerText} onPress={goToRegister}>
+          Belum punya akun?{" "}
+          <Text style={stylesLogin.registerLink}>Buat disini</Text>
+        </Text>
+      </View>
+      <View style={stylesLogin.backgroundBottom} />
     </View>
   );
 };

@@ -7,6 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage"; // Import 
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen/RegisterScreen";
 import GameScreen from "./screens/GameScreen/GameScreen";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
 
 const Stack = createStackNavigator();
 
@@ -16,7 +17,7 @@ const AppSrc = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={fullName ? "Login" : "Main"}
+        initialRouteName={fullName ? "Home" : "Main"}
         screenOptions={{
           headerShown: false,
         }}
@@ -26,6 +27,11 @@ const AppSrc = () => {
         <Stack.Screen
           name="Main"
           component={GameScreen}
+          options={{ unmountOnBlur: true }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
           options={{ unmountOnBlur: true }}
         />
       </Stack.Navigator>
