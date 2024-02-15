@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
-import { stylesMain } from "./ChoiceButon.styles";
+import { stylesMain } from "./ChoiceButton.styles";
 
 const ChoiceButton = ({ image, action }) => {
   return (
