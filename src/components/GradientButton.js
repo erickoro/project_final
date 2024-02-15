@@ -12,7 +12,7 @@ const GradientButton = ({ text, action, color }) => {
   return (
     <TouchableOpacity onPress={action} style={styles.button}>
       <LinearGradient
-        colors={pallete[color]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
+        colors={pallete[color]} 
         start={{ x: 0, y: 0.5 }}
         end={{ x: 1, y: 0.5 }}
         style={styles.gradient}
