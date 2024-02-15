@@ -12,6 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage"; // Import 
 import { Card } from "react-native-paper";
 import { stylesMain } from "./GameScreen.styles";
 import { LinearGradient } from "expo-linear-gradient";
+import ChoiceButton from "../../components/ChoiceButton";
 
 const GameScreen = ({ navigation }) => {
   const [playerChoice, setPlayerChoice] = useState(null);
@@ -74,17 +75,11 @@ const GameScreen = ({ navigation }) => {
       <Text style={stylesMain.title}>Batu Gunting Kertas</Text>
       <View style={stylesMain.choicesContainer}>
         {choices.map((choice) => (
-          <TouchableOpacity
+          <ChoiceButton
             key={choice.name}
-            onPress={() => handlePlayerChoice(choice.name)}
-          >
-            <Card style={stylesMain.choiceCard}>
-              <Card.Cover
-                source={choice.image}
-                style={stylesMain.choiceImage}
-              />
-            </Card>
-          </TouchableOpacity>
+            image={choice.image}
+            action={() => handlePlayerChoice(choice.name)}
+          />
         ))}
       </View>
       <View style={stylesMain.resultContainer}>
