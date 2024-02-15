@@ -1,4 +1,4 @@
-import { Dimensions} from 'react-native';
+import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -14,7 +14,7 @@ export const stylesMain = {
     fontWeight: "bold",
     marginBottom: 10,
   },
-  textKalimat :{
+  textKalimat: {
     fontSize: 12,
     marginBottom: 10,
   },
@@ -28,15 +28,7 @@ export const stylesMain = {
     justifyContent: "space-around",
     marginBottom: 20,
     width: windowWidth * 0.9,
-  },
-  choiceCard: {
-    width: windowWidth * 0.25,
-    height: windowWidth * 0.25,
-    marginBottom: 10,
-  },
-  choiceImage: {
-    width: "100%",
-    height: "100%",
+    gap: 10,
   },
   resultContainer: {
     alignItems: "center",
@@ -49,18 +41,18 @@ export const stylesMain = {
   },
   button: {
     borderRadius: 25,
-    overflow: 'hidden', // Untuk memastikan gradient tetap di dalam batas border radius
+    overflow: "hidden", // Untuk memastikan gradient tetap di dalam batas border radius
     // marginTop: 20,
-    top: '10%',
+    top: "10%",
   },
   gradient: {
     width: 200,
     height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     fontSize: 16,
-    color: 'white',
+    color: "white",
   },
 };
