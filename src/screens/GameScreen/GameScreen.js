@@ -8,7 +8,7 @@ import {
   Button,
   Dimensions,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
+import AsyncStorage from "@react-native-async-storage/async-storage"; 
 import { Card } from "react-native-paper";
 import { stylesMain } from "./GameScreen.styles";
 import { LinearGradient } from "expo-linear-gradient";
@@ -59,10 +59,8 @@ const GameScreen = ({ navigation }) => {
   };
 
   const handleLogout = async () => {
-    // Clear fullName from AsyncStorage upon logout
     await AsyncStorage.removeItem("fullName");
 
-    // Navigate back to the Login screen
     navigation.replace("Login");
   };
 
@@ -101,11 +99,10 @@ const GameScreen = ({ navigation }) => {
           </View>
         )}
       </View>
-      {/* <Button title="Logout" onPress={handleLogout} /> */}
 
       <TouchableOpacity onPress={handleLogout} style={stylesMain.button}>
         <LinearGradient
-          colors={["#4CAF50", "#2E7D32"]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
+          colors={["#4CAF50", "#2E7D32"]} 
           start={{ x: 0, y: 0.5 }}
           end={{ x: 1, y: 0.5 }}
           style={stylesMain.gradient}

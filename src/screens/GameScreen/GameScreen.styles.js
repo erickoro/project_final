@@ -41,8 +41,7 @@ export const stylesMain = {
   },
   button: {
     borderRadius: 25,
-    overflow: "hidden", // Untuk memastikan gradient tetap di dalam batas border radius
-    // marginTop: 20,
+    overflow: "hidden", 
     top: "10%",
   },
   gradient: {
