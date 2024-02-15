@@ -50,7 +50,6 @@ export const styles = {
     width: "100%",
     background: "#5AB266",
     position: "absolute",
-    // transform: [{ rotate: "-24deg" }],
     borderRadius: 10,
     bottom: -10,
     zIndex: -1,

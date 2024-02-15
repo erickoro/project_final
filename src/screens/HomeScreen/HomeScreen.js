@@ -11,15 +11,15 @@ import {
   View,
 } from "react-native";
 
-import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
-import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook
+import AsyncStorage from "@react-native-async-storage/async-storage"; 
+import { useNavigation } from "@react-navigation/native"; 
 
 import { API_URL } from "../../constant/API";
 import { styles } from "./HomeScreen.styles";
 import GradientButton from "../../components/GradientButton";
 
 const HomeScreen = () => {
-  const navigation = useNavigation(); // Initialize useNavigation hook
+  const navigation = useNavigation(); 
 
   const goToLogin = () => {
     navigation.replace("Login");
