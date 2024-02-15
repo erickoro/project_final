@@ -12,7 +12,7 @@ import GameScreen from "../screens/GameScreen/GameScreen";
 
 const Stack = createStackNavigator();
 
-const Navigation = () => {
+const AppSrc = () => {
   const fullName = AsyncStorage.getItem("fullName");
 
   return (
@@ -35,4 +35,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default AppSrc;

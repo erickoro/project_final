@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import Navigation from "./src/Navigation/Navigation";
+
+import AppSrc from "./src";
 
 const Rendering = () => (
   // <SafeAreaView  forceInset={{ top: 'always' }}>
@@ -9,7 +10,7 @@ const Rendering = () => (
       height: "100%",
     }}
   >
-    <Navigation />
+    <AppSrc />
   </ScrollView>
   // </SafeAreaView>
 );
