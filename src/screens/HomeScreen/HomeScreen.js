@@ -11,15 +11,15 @@ import {
   View,
 } from "react-native";
 
-import AsyncStorage from "@react-native-async-storage/async-storage"; 
-import { useNavigation } from "@react-navigation/native"; 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
 
 import { API_URL } from "../../constant/API";
 import { styles } from "./HomeScreen.styles";
 import GradientButton from "../../components/GradientButton";
 
 const HomeScreen = () => {
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
 
   const goToLogin = () => {
     navigation.replace("Login");
@@ -34,7 +34,7 @@ const HomeScreen = () => {
       <View style={styles.imageContainer}>
         <Text style={styles.title}>Hello!</Text>
         <Image
-          source={require("../../../assets/rock-paper-scissors.png")}
+          source={require("../../../assets/rock-paper-scissors.svg")}
           style={styles.image}
           resizeMode="contain"
         />

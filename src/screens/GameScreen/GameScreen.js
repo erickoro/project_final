@@ -8,7 +8,7 @@ import {
   Button,
   Dimensions,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage"; 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Card } from "react-native-paper";
 import { stylesMain } from "./GameScreen.styles";
 import { LinearGradient } from "expo-linear-gradient";
@@ -31,9 +31,9 @@ const GameScreen = ({ navigation }) => {
   }, []);
 
   const choices = [
-    { name: "batu", image: require("../../../assets/batu.png") },
-    { name: "gunting", image: require("../../../assets/gunting.png") },
-    { name: "kertas", image: require("../../../assets/kertas.png") },
+    { name: "batu", image: require("../../../assets/batu.svg") },
+    { name: "gunting", image: require("../../../assets/gunting.svg") },
+    { name: "kertas", image: require("../../../assets/kertas.svg") },
   ];
 
   const handlePlayerChoice = (choice) => {
@@ -102,7 +102,7 @@ const GameScreen = ({ navigation }) => {
 
       <TouchableOpacity onPress={handleLogout} style={stylesMain.button}>
         <LinearGradient
-          colors={["#4CAF50", "#2E7D32"]} 
+          colors={["#4CAF50", "#2E7D32"]}
           start={{ x: 0, y: 0.5 }}
           end={{ x: 1, y: 0.5 }}
           style={stylesMain.gradient}

@@ -21,8 +21,8 @@ import GradientButton from "../../components/GradientButton";
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // State for loading indicator
-  const navigation = useNavigation(); // Initialize useNavigation hook
+  const [loading, setLoading] = useState(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     checkFullName();
@@ -36,7 +36,7 @@ const LoginScreen = () => {
   };
 
   const handleLogin = async () => {
-    setLoading(true); // Set loading to true when login starts
+    setLoading(true);
 
     try {
       const response = await axios.post(`${API_URL}/login`, {
@@ -44,26 +44,13 @@ const LoginScreen = () => {
         password,
       });
 
-      // kalo mau pake mock
-      // const { passwordMock, emailMock, fullName } = mockLoginData;
-
-      // if (passwordMock !== password && emailMock !== email) {
-      //   return Alert.alert("Error", "Invalid email or password");
-      // }
-
-      // Save user's fullName to AsyncStorage
       await AsyncStorage.setItem("fullName", response.data.fullName);
-
-      // kalo mau pake mock
-      // await AsyncStorage.setItem("fullName", fullName);
-
-      // Navigate to the Main screen upon successful login
       navigation.replace("Main");
     } catch (error) {
       Alert.alert("Error", "Invalid email or password");
       console.error(error);
     } finally {
-      setLoading(false); // Set loading to false after login attempt (whether success or failure)
+      setLoading(false);
     }
   };
 
@@ -78,7 +65,7 @@ const LoginScreen = () => {
         <Text>Enjoy Rock, Paper, Scissors, Shoot!</Text>
       </View>
       <Image
-        source={require("../../../assets/rock-paper-scissors.png")}
+        source={require("../../../assets/rock-paper-scissors.svg")}
         style={stylesLogin.imageSize}
         resizeMode="contain"
       />
