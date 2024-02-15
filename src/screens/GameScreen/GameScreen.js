@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -17,6 +17,12 @@ import ChoiceButton from "../../components/ChoiceButton";
 const GameScreen = ({ navigation }) => {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
+  const [playerImage, setPlayerImage] = useState(
+    require("../../../assets/question-mark.svg")
+  );
+  const [computerImage, setComputerImage] = useState(
+    require("../../../assets/question-mark.svg")
+  );
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const [result, setResult] = useState("");
@@ -30,25 +36,36 @@ const GameScreen = ({ navigation }) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (computerChoice && playerChoice) getResult();
+  }, [computerChoice, playerChoice]);
+
   const choices = [
     { name: "batu", image: require("../../../assets/batu.svg") },
     { name: "gunting", image: require("../../../assets/gunting.svg") },
     { name: "kertas", image: require("../../../assets/kertas.svg") },
   ];
 
-  const handlePlayerChoice = (choice) => {
+  const getComputerChoice = () => {
     const randomIndex = Math.floor(Math.random() * choices.length);
-    const computerChoice = choices[randomIndex].name;
+    setComputerChoice(choices[randomIndex].name);
+    setComputerImage(choices[randomIndex].image);
+  };
 
+  const handlePlayerChoice = (choice, image) => {
+    getComputerChoice();
     setPlayerChoice(choice);
-    setComputerChoice(computerChoice);
+    setPlayerImage(image);
+  };
 
-    if (choice === computerChoice) {
+  const getResult = () => {
+    console.log(playerChoice, computerChoice);
+    if (playerChoice === computerChoice) {
       setResult("Draw!");
     } else if (
-      (choice === "batu" && computerChoice === "gunting") ||
-      (choice === "gunting" && computerChoice === "kertas") ||
-      (choice === "kertas" && computerChoice === "batu")
+      (playerChoice === "batu" && computerChoice === "gunting") ||
+      (playerChoice === "gunting" && computerChoice === "kertas") ||
+      (playerChoice === "kertas" && computerChoice === "batu")
     ) {
       setResult("You win!");
       setPlayerScore((prev) => prev + 1);
@@ -56,60 +73,60 @@ const GameScreen = ({ navigation }) => {
       setResult("You lose!");
       setComputerScore((prev) => prev + 1);
     }
+    console.log(result, playerScore, computerScore);
   };
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem("fullName");
-
     navigation.replace("Login");
   };
 
   return (
     <View style={stylesMain.container}>
-      <Text style={stylesMain.fullName}>Hallo, {fullName}</Text>
-      <Text style={stylesMain.textKalimat}>
-        Mari Bermain, Kalahkan lawanmu !!!
-      </Text>
-      <Text style={stylesMain.title}>Batu Gunting Kertas</Text>
-      <View style={stylesMain.choicesContainer}>
-        {choices.map((choice) => (
-          <ChoiceButton
-            key={choice.name}
-            image={choice.image}
-            action={() => handlePlayerChoice(choice.name)}
-          />
-        ))}
+      <View style={{ alignItems: "center" }}>
+        <Text style={stylesMain.fullName}>Halo, {fullName}</Text>
+        <Text style={stylesMain.textKalimat}>
+          Mari Bermain, Kalahkan lawanmu !!!
+        </Text>
       </View>
-      <View style={stylesMain.resultContainer}>
-        {playerChoice && computerChoice && (
-          <View>
-            <Text style={stylesMain.resultText}>
-              Your choice: {playerChoice}
-            </Text>
-            <Text style={stylesMain.resultText}>
-              Computer's choice: {computerChoice}
-            </Text>
-            <Text style={stylesMain.resultText}>{result}</Text>
-            <Text style={stylesMain.resultText}>
-              player Score: {playerScore}
-            </Text>
-            <Text style={stylesMain.resultText}>
-              computer Score: {computerScore}
-            </Text>
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={stylesMain.resultContainer}>
+          <View style={stylesMain.resultCard}>
+            <Text style={stylesMain.playerScore}>{playerScore}</Text>
+            <Image source={playerImage} style={stylesMain.resultImage} />
+            <Text>You</Text>
           </View>
-        )}
+          <View style={stylesMain.resultCard}>
+            <Text style={stylesMain.computerScore}>{computerScore}</Text>
+            <Image source={computerImage} style={stylesMain.resultImage} />
+            <Text>Computer</Text>
+          </View>
+        </View>
+        <Text style={stylesMain.resultText}>{result}</Text>
       </View>
 
-      <TouchableOpacity onPress={handleLogout} style={stylesMain.button}>
-        <LinearGradient
-          colors={["#4CAF50", "#2E7D32"]}
-          start={{ x: 0, y: 0.5 }}
-          end={{ x: 1, y: 0.5 }}
-          style={stylesMain.gradient}
-        >
-          <Text style={stylesMain.buttonText}>Logout</Text>
-        </LinearGradient>
-      </TouchableOpacity>
+      <View style={{ alignItems: "center" }}>
+        <Text style={stylesMain.title}>Choose your choice!</Text>
+        <View style={stylesMain.choicesContainer}>
+          {choices.map((choice) => (
+            <ChoiceButton
+              key={choice.name}
+              image={choice.image}
+              action={() => handlePlayerChoice(choice.name, choice.image)}
+            />
+          ))}
+        </View>
+        <TouchableOpacity onPress={handleLogout} style={stylesMain.button}>
+          <LinearGradient
+            colors={["#4CAF50", "#2E7D32"]}
+            start={{ x: 0, y: 0.5 }}
+            end={{ x: 1, y: 0.5 }}
+            style={stylesMain.gradient}
+          >
+            <Text style={stylesMain.buttonText}>Logout</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

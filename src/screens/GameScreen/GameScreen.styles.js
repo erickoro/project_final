@@ -8,11 +8,12 @@ export const stylesMain = {
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
+    paddingVertical: 64,
   },
   fullName: {
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 5,
   },
   textKalimat: {
     fontSize: 12,
@@ -31,17 +32,48 @@ export const stylesMain = {
     gap: 10,
   },
   resultContainer: {
+    flexDirection: "row",
+    padding: 20,
     alignItems: "center",
-    width: windowWidth * 0.9,
+    justifyContent: "center",
+    gap: 20,
+    backgroundColor: "#CBCED1",
+    width: windowWidth * 0.8,
+    borderRadius: 20,
+  },
+  playerScore: {
+    width: "100%",
+    backgroundColor: "#23D18B",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  computerScore: {
+    width: "100%",
+    backgroundColor: "#E64A19",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
+  },
+  resultCard: {
+    gap: 10,
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 15,
   },
   resultText: {
-    fontSize: 18,
+    height: 16,
+    fontSize: 24,
     marginVertical: 5,
     textAlign: "center",
+    fontweight: "bold",
   },
   button: {
     borderRadius: 25,
-    overflow: "hidden", 
+    overflow: "hidden",
     top: "10%",
   },
   gradient: {
@@ -53,5 +85,10 @@ export const stylesMain = {
   buttonText: {
     fontSize: 16,
     color: "white",
+  },
+  resultImage: {
+    width: 50,
+    height: 50,
+    alignSelf: "center",
   },
 };

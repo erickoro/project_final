@@ -2,9 +2,10 @@ export const styles = {
   button: {
     borderRadius: 25,
     overflow: "hidden",
+    alignSelf: "strecth",
   },
   gradient: {
-    width: 200,
+    minWidth: 200,
     height: 50,
     justifyContent: "center",
     alignItems: "center",

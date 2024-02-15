@@ -5,14 +5,15 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const GradientButton = ({ text, action, color }) => {
   const pallete = {
-    green: ["#AEE9AF", "#AEE9AF"],
+    flatgreen: ["#AEE9AF", "#AEE9AF"],
+    green: ["#4CAF50", "#2E7D32"],
     yellow: ["#FED754", "#FFCA28"],
   };
   console.log(pallete[color]);
   return (
     <TouchableOpacity onPress={action} style={styles.button}>
       <LinearGradient
-        colors={pallete[color]} 
+        colors={pallete[color]}
         start={{ x: 0, y: 0.5 }}
         end={{ x: 1, y: 0.5 }}
         style={styles.gradient}
