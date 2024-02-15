@@ -11,6 +11,8 @@ import {
   View,
 } from "react-native";
 
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+
 import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
 import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook
 
@@ -71,20 +73,22 @@ const LoginScreen = () => {
       />
       <View>
         <Text style={stylesLogin.label}>Email:</Text>
-        <TextInput
-          style={stylesLogin.input}
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          placeholder="Enter your email"
-        />
-        <Text style={stylesLogin.label}>Password:</Text>
-        <TextInput
-          style={stylesLogin.input}
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          placeholder="Enter your password"
-          secureTextEntry={true}
-        />
+        <KeyboardAwareScrollView>
+          <TextInput
+            style={stylesLogin.input}
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            placeholder="Enter your email"
+          />
+          <Text style={stylesLogin.label}>Password:</Text>
+          <TextInput
+            style={stylesLogin.input}
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            placeholder="Enter your password"
+            secureTextEntry={true}
+          />
+        </KeyboardAwareScrollView>
         {loading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (

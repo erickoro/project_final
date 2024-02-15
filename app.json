@@ -15,8 +15,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "softwareKeyboardLayoutMode":"pan"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
