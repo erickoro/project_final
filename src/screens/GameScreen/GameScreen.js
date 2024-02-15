@@ -16,6 +16,8 @@ import { LinearGradient } from "expo-linear-gradient";
 const GameScreen = ({ navigation }) => {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
+  const [playerScore, setPlayerScore] = useState(0);
+  const [computerScore, setComputerScore] = useState(0);
   const [result, setResult] = useState("");
   const [fullName, setFullName] = useState("");
 
@@ -48,8 +50,10 @@ const GameScreen = ({ navigation }) => {
       (choice === "kertas" && computerChoice === "batu")
     ) {
       setResult("You win!");
+      setPlayerScore((prev) => prev + 1);
     } else {
       setResult("You lose!");
+      setComputerScore((prev) => prev + 1);
     }
   };
 
@@ -93,6 +97,12 @@ const GameScreen = ({ navigation }) => {
               Computer's choice: {computerChoice}
             </Text>
             <Text style={stylesMain.resultText}>{result}</Text>
+            <Text style={stylesMain.resultText}>
+              player Score: {playerScore}
+            </Text>
+            <Text style={stylesMain.resultText}>
+              computer Score: {computerScore}
+            </Text>
           </View>
         )}
       </View>
