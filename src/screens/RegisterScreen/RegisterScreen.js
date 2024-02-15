@@ -10,7 +10,6 @@ import {
   ActivityIndicator,
   Image,
 } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Axios from "axios";
 import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "react-native-paper";
@@ -64,6 +63,7 @@ const RegisterScreen = () => {
 
   return (
     <ScrollView contentContainerStyle={stylesRegister.container}>
+      <View style={stylesRegister.background} />
       <Image
         source={require("../../../assets/rock-paper-scissors.svg")}
         style={stylesRegister.imageSize}
@@ -71,7 +71,6 @@ const RegisterScreen = () => {
       />
       <Text style={stylesRegister.title}>Daftar Akun</Text>
       <View style={stylesRegister.formContainer}>
-      <KeyboardAwareScrollView>
         <TextInput
           style={stylesRegister.input}
           placeholder="Nama Lengkap"
@@ -98,8 +97,6 @@ const RegisterScreen = () => {
           value={formData.confirmPassword}
           onChangeText={(text) => handleChange("confirmPassword", text)}
         />
-      </KeyboardAwareScrollView>
-      
         {loading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
