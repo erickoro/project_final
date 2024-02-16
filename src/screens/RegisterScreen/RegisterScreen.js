@@ -63,7 +63,7 @@ const RegisterScreen = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={stylesRegister.container}>
+    <View contentContainerStyle={stylesRegister.container}>
       <View style={stylesRegister.background} />
       <Image
         source={require("../../../assets/rock-paper-scissors.svg")}
@@ -123,7 +123,7 @@ const RegisterScreen = () => {
         Sudah punya akun?{" "}
         <Text style={stylesRegister.loginLink}>Masuk disini</Text>
       </Text>
-    </ScrollView>
+    </View>
   );
 };
 
