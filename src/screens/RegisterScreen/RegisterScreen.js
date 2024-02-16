@@ -18,6 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { stylesRegister } from "./RegisterScreen.styles";
 import { API_URL } from "../../constant/API";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const RegisterScreen = () => {
   const [formData, setFormData] = useState({
@@ -70,7 +71,7 @@ const RegisterScreen = () => {
         resizeMode="contain"
       />
       <Text style={stylesRegister.title}>Daftar Akun</Text>
-      <View style={stylesRegister.formContainer}>
+      <KeyboardAwareScrollView style={stylesRegister.formContainer}>
         <TextInput
           style={stylesRegister.input}
           placeholder="Nama Lengkap"
@@ -114,7 +115,7 @@ const RegisterScreen = () => {
             </LinearGradient>
           </TouchableOpacity>
         )}
-      </View>
+      </KeyboardAwareScrollView>
       <Text
         style={stylesRegister.loginText}
         onPress={() => navigation.replace("Login")}

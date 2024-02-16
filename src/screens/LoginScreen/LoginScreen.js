@@ -17,6 +17,7 @@ import { useNavigation } from "@react-navigation/native"; // Import useNavigatio
 import { API_URL } from "../../constant/API";
 import { stylesLogin } from "./LoginScreen.styles";
 import GradientButton from "../../components/GradientButton";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -68,7 +69,7 @@ const LoginScreen = () => {
       />
       <Text style={stylesLogin.title}>Welcome Back!</Text>
       <View style={stylesLogin.formContainer}>
-        <>
+        <KeyboardAwareScrollView>
           <Text style={stylesLogin.label}>Email:</Text>
           <TextInput
             style={stylesLogin.input}
@@ -76,8 +77,8 @@ const LoginScreen = () => {
             value={email}
             placeholder="Enter your email"
           />
-        </>
-        <>
+        </KeyboardAwareScrollView>
+        <KeyboardAwareScrollView>
           <Text style={stylesLogin.label}>Password:</Text>
           <TextInput
             style={stylesLogin.input}
@@ -86,7 +87,7 @@ const LoginScreen = () => {
             placeholder="Enter your password"
             secureTextEntry={true}
           />
-        </>
+        </KeyboardAwareScrollView>
 
         {loading ? (
           <ActivityIndicator size="large" color="#0000ff" />
