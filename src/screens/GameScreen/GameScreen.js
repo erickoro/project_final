@@ -78,7 +78,7 @@ const GameScreen = ({ navigation }) => {
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem("fullName");
-    navigation.replace("Login");
+    navigation.replace("Home");
   };
 
   return (
