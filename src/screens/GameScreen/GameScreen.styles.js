@@ -1,6 +1,7 @@
 import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 export const stylesMain = {
   container: {
@@ -11,12 +12,12 @@ export const stylesMain = {
     paddingVertical: 64,
   },
   fullName: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: "bold",
     marginBottom: 5,
   },
   textKalimat: {
-    fontSize: 12,
+    fontSize: 16,
     marginBottom: 10,
   },
   title: {
@@ -42,6 +43,9 @@ export const stylesMain = {
     borderRadius: 20,
   },
   playerScore: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    padding:10,
     width: "100%",
     backgroundColor: "#23D18B",
     textAlign: "center",
@@ -49,6 +53,9 @@ export const stylesMain = {
     fontWeight: "bold",
   },
   computerScore: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    padding:10,
     width: "100%",
     backgroundColor: "#E64A19",
     textAlign: "center",
@@ -57,6 +64,7 @@ export const stylesMain = {
     color: "white",
   },
   resultCard: {
+    paddingBottom: 10,
     gap: 10,
     flex: 1,
     justifyContent: "space-between",
@@ -65,7 +73,7 @@ export const stylesMain = {
     borderRadius: 15,
   },
   resultText: {
-    height: 16,
+    padding: 12,
     fontSize: 24,
     marginVertical: 5,
     textAlign: "center",
