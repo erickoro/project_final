@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Game",
+    "name": "Rock Paper Scissor",
     "slug": "Game",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,11 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff",
-        "softwareKeyboardLayoutMode":"pan"
-      }
+        "softwareKeyboardLayoutMode": "pan"
+      },
+      "package": "com.rakaminbsi.rockpaperscissors"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "698e3ca2-a16c-4063-b40a-bab6843b7111"
+      }
     }
   }
 }
