@@ -41,7 +41,7 @@ export const stylesLogin = {
     borderRadius: 5,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    backgroundColor: "#F0FFF0", // Honeydew
+    backgroundColor: "#E8F0FE", // Honeydew
     marginBottom: 10,
   },
   registerText: {
