@@ -9,7 +9,7 @@ const GradientButton = ({ text, action, color }) => {
     green: ["#4CAF50", "#2E7D32"],
     yellow: ["#FED754", "#FFCA28"],
   };
-  console.log(pallete[color]);
+  
   return (
     <TouchableOpacity onPress={action} style={styles.button}>
       <LinearGradient

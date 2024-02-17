@@ -44,17 +44,22 @@ const LoginScreen = () => {
         email,
         password,
       });
-
+      console.log(response);
       await AsyncStorage.setItem("fullName", response.data.fullName);
       navigation.replace("Main");
-    } catch (error) {
-      Alert.alert("Error", "Invalid email or password");
-      console.error(error);
-    } finally {
+    }
+    catch (error) {
+      if (error.response && error.response.status === 404) {
+        Alert.alert("Invalid Email or Password");
+        alert("Invalid Email or Password")
+      } else {
+        Alert.alert("Error:", error.message);
+      }
+    }
+    finally {
       setLoading(false);
     }
   };
-
   const goToRegister = () => {
     navigation.replace("Register");
   };
@@ -103,5 +108,4 @@ const LoginScreen = () => {
     </View>
   );
 };
-
 export default LoginScreen;
