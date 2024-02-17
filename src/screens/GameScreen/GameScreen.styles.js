@@ -1,4 +1,4 @@
-import { Dimensions} from 'react-native';
+import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -8,13 +8,14 @@ export const stylesMain = {
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
+    paddingVertical: 64,
   },
   fullName: {
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 5,
   },
-  textKalimat :{
+  textKalimat: {
     fontSize: 12,
     marginBottom: 10,
   },
@@ -28,39 +29,66 @@ export const stylesMain = {
     justifyContent: "space-around",
     marginBottom: 20,
     width: windowWidth * 0.9,
-  },
-  choiceCard: {
-    width: windowWidth * 0.25,
-    height: windowWidth * 0.25,
-    marginBottom: 10,
-  },
-  choiceImage: {
-    width: "100%",
-    height: "100%",
+    gap: 10,
   },
   resultContainer: {
+    flexDirection: "row",
+    padding: 20,
     alignItems: "center",
-    width: windowWidth * 0.9,
+    justifyContent: "center",
+    gap: 20,
+    backgroundColor: "#CBCED1",
+    width: windowWidth * 0.8,
+    borderRadius: 20,
+  },
+  playerScore: {
+    width: "100%",
+    backgroundColor: "#23D18B",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  computerScore: {
+    width: "100%",
+    backgroundColor: "#E64A19",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
+  },
+  resultCard: {
+    gap: 10,
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 15,
   },
   resultText: {
-    fontSize: 18,
+    height: 16,
+    fontSize: 24,
     marginVertical: 5,
     textAlign: "center",
+    fontweight: "bold",
   },
   button: {
     borderRadius: 25,
-    overflow: 'hidden', // Untuk memastikan gradient tetap di dalam batas border radius
-    // marginTop: 20,
-    top: '10%',
+    overflow: "hidden",
+    top: "10%",
   },
   gradient: {
     width: 200,
     height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     fontSize: 16,
-    color: 'white',
+    color: "white",
+  },
+  resultImage: {
+    width: 50,
+    height: 50,
+    alignSelf: "center",
   },
 };

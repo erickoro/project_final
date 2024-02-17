@@ -4,21 +4,20 @@ import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
-import LoginScreen from "../screens/LoginScreen/LoginScreen";
-
-import RegisterScreen from "../screens/RegisterScreen/RegisterScreen";
-
-import GameScreen from "../screens/GameScreen/GameScreen";
+import LoginScreen from "./screens/LoginScreen/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen/RegisterScreen";
+import GameScreen from "./screens/GameScreen/GameScreen";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
 
 const Stack = createStackNavigator();
 
-const Navigation = () => {
+const AppSrc = () => {
   const fullName = AsyncStorage.getItem("fullName");
 
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={fullName ? "Login" : "Main"}
+        initialRouteName={fullName ? "Home" : "Main"}
         screenOptions={{
           headerShown: false,
         }}
@@ -30,9 +29,14 @@ const Navigation = () => {
           component={GameScreen}
           options={{ unmountOnBlur: true }}
         />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ unmountOnBlur: true }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default Navigation;
+export default AppSrc;

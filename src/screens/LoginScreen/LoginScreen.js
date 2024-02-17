@@ -16,12 +16,14 @@ import { useNavigation } from "@react-navigation/native"; // Import useNavigatio
 
 import { API_URL } from "../../constant/API";
 import { stylesLogin } from "./LoginScreen.styles";
+import GradientButton from "../../components/GradientButton";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // State for loading indicator
-  const navigation = useNavigation(); // Initialize useNavigation hook
+  const [loading, setLoading] = useState(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     checkFullName();
@@ -35,7 +37,7 @@ const LoginScreen = () => {
   };
 
   const handleLogin = async () => {
-    setLoading(true); // Set loading to true when login starts
+    setLoading(true);
 
     try {
       const response = await axios.post(`${API_URL}/login`, {
@@ -43,26 +45,13 @@ const LoginScreen = () => {
         password,
       });
 
-      // kalo mau pake mock
-      // const { passwordMock, emailMock, fullName } = mockLoginData;
-
-      // if (passwordMock !== password && emailMock !== email) {
-      //   return Alert.alert("Error", "Invalid email or password");
-      // }
-
-      // Save user's fullName to AsyncStorage
       await AsyncStorage.setItem("fullName", response.data.fullName);
-
-      // kalo mau pake mock
-      // await AsyncStorage.setItem("fullName", fullName);
-
-      // Navigate to the Main screen upon successful login
       navigation.replace("Main");
     } catch (error) {
       Alert.alert("Error", "Invalid email or password");
       console.error(error);
     } finally {
-      setLoading(false); // Set loading to false after login attempt (whether success or failure)
+      setLoading(false);
     }
   };
 
@@ -72,48 +61,45 @@ const LoginScreen = () => {
 
   return (
     <View style={stylesLogin.container}>
-      {/* <Card style={stylesLogin.imageCard}>
-        <Card.Cover source={require("../../assets/rock-paper-scissors.png")} style={stylesLogin.imageSize} />
-      </Card> */}
+      <View style={stylesLogin.background} />
       <Image
-        source={require("../../../assets/rock-paper-scissors.png")}
+        source={require("../../../assets/rock-paper-scissors.svg")}
         style={stylesLogin.imageSize}
         resizeMode="contain"
       />
-      <Text style={stylesLogin.label}>Email:</Text>
-      <TextInput
-        style={stylesLogin.input}
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-        placeholder="Enter your email"
-      />
-      <Text style={stylesLogin.label}>Password:</Text>
-      <TextInput
-        style={stylesLogin.input}
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-        placeholder="Enter your password"
-        secureTextEntry={true}
-      />
-      {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : (
-        // <Button title="Login" onPress={handleLogin} />
-        <TouchableOpacity onPress={handleLogin} style={stylesLogin.button}>
-          <LinearGradient
-            colors={["#4CAF50", "#2E7D32"]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
-            start={{ x: 0, y: 0.5 }}
-            end={{ x: 1, y: 0.5 }}
-            style={stylesLogin.gradient}
-          >
-            <Text style={stylesLogin.buttonText}>Login</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-      )}
-      <Text style={stylesLogin.registerText} onPress={goToRegister}>
-        Belum punya akun?{" "}
-        <Text style={stylesLogin.registerLink}>Buat disini</Text>
-      </Text>
+      <Text style={stylesLogin.title}>Welcome Back!</Text>
+      <View style={stylesLogin.formContainer}>
+        <KeyboardAwareScrollView>
+          <Text style={stylesLogin.label}>Email:</Text>
+          <TextInput
+            style={stylesLogin.input}
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            placeholder="Enter your email"
+          />
+        </KeyboardAwareScrollView>
+        <KeyboardAwareScrollView>
+          <Text style={stylesLogin.label}>Password:</Text>
+          <TextInput
+            style={stylesLogin.input}
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            placeholder="Enter your password"
+            secureTextEntry={true}
+          />
+        </KeyboardAwareScrollView>
+
+        {loading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : (
+          <GradientButton action={handleLogin} text="Login" color="yellow" />
+        )}
+        <Text style={stylesLogin.registerText} onPress={goToRegister}>
+          Belum punya akun?{" "}
+          <Text style={stylesLogin.registerLink}>Buat disini</Text>
+        </Text>
+      </View>
+      <View style={stylesLogin.backgroundBottom} />
     </View>
   );
 };

@@ -14,10 +14,11 @@ import Axios from "axios";
 import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "react-native-paper";
 
-import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook
+import { useNavigation } from "@react-navigation/native";
 
 import { stylesRegister } from "./RegisterScreen.styles";
 import { API_URL } from "../../constant/API";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const RegisterScreen = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const RegisterScreen = () => {
     confirmPassword: "",
   });
   const [loading, setLoading] = useState(false);
-  const navigation = useNavigation(); // Initialize useNavigation hook
+  const navigation = useNavigation();
 
   const handleChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
@@ -63,16 +64,14 @@ const RegisterScreen = () => {
 
   return (
     <ScrollView contentContainerStyle={stylesRegister.container}>
-      {/* <Card style={stylesRegister.imageCard}>
-        <Card.Cover source={require("../../assets/rock-paper-scissors.png")} style={stylesRegister.imageSize} />
-      </Card> */}
+      <View style={stylesRegister.background} />
       <Image
-        source={require("../../../assets/rock-paper-scissors.png")}
+        source={require("../../../assets/rock-paper-scissors.svg")}
         style={stylesRegister.imageSize}
         resizeMode="contain"
       />
       <Text style={stylesRegister.title}>Daftar Akun</Text>
-      <View style={stylesRegister.formContainer}>
+      <KeyboardAwareScrollView style={stylesRegister.formContainer}>
         <TextInput
           style={stylesRegister.input}
           placeholder="Nama Lengkap"
@@ -99,22 +98,15 @@ const RegisterScreen = () => {
           value={formData.confirmPassword}
           onChangeText={(text) => handleChange("confirmPassword", text)}
         />
-        {/* <Button
-          title={loading ? "Loading..." : "Daftar"}
-          onPress={handleSubmit}
-          disabled={loading}
-        /> */}
         {loading ? (
-          // <ActivityIndicator size="large" color="#0000ff" />
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          // <Button title="Login" onPress={handleLogin} />
           <TouchableOpacity
             onPress={handleSubmit}
             style={stylesRegister.button}
           >
             <LinearGradient
-              colors={["#4CAF50", "#2E7D32"]} // Warna gradient sesuaikan dengan tema hijau army yang diinginkan
+              colors={["#4CAF50", "#2E7D32"]}
               start={{ x: 0, y: 0.5 }}
               end={{ x: 1, y: 0.5 }}
               style={stylesRegister.gradient}
@@ -123,7 +115,7 @@ const RegisterScreen = () => {
             </LinearGradient>
           </TouchableOpacity>
         )}
-      </View>
+      </KeyboardAwareScrollView>
       <Text
         style={stylesRegister.loginText}
         onPress={() => navigation.replace("Login")}
