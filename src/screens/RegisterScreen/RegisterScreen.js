@@ -66,7 +66,7 @@ const RegisterScreen = () => {
     <ScrollView contentContainerStyle={stylesRegister.container}>
       <View style={stylesRegister.background} />
       <Image
-        source={require("../../../assets/rock-paper-scissors.svg")}
+        source={require("../../../assets/rock-paper-scissors.png")}
         style={stylesRegister.imageSize}
         resizeMode="contain"
       />

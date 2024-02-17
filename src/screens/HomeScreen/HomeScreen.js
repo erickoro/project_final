@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
-
+import { SvgUri } from "react-native-svg";
+import LogoSVG from "../../../assets/rock-paper-scissors.svg"
 import { useNavigation } from "@react-navigation/native";
 
 import GradientButton from "../../components/GradientButton";
@@ -40,10 +41,10 @@ const HomeScreen = () => {
       <View style={styles.imageContainer}>
         <Text style={styles.title}>Hello!</Text>
         <Image
-          source={require("../../../assets/rock-paper-scissors.svg")}
-          style={styles.image}
-          resizeMode="contain"
-        />
+        source={require("../../../assets/rock-paper-scissors.png")}
+        style={styles.image}
+        resizeMode="contain"
+      />
         <Text style={styles.subtitle}>Enjoy Rock, Paper, Scissors, Shoot!</Text>
       </View>
       <View style={styles.buttonContainer}>
