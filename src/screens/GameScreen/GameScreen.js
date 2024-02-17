@@ -25,7 +25,7 @@ const GameScreen = ({ navigation }) => {
   );
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState(" ");
   const [fullName, setFullName] = useState("");
 
   useEffect(() => {
