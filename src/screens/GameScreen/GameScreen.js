@@ -41,9 +41,9 @@ const GameScreen = ({ navigation }) => {
   }, [computerChoice, playerChoice]);
 
   const choices = [
-    { name: "batu", image: require("../../../assets/batu.svg") },
-    { name: "gunting", image: require("../../../assets/gunting.svg") },
-    { name: "kertas", image: require("../../../assets/kertas.svg") },
+    { name: "batu", image: require("../../../assets/batu.png") },
+    { name: "gunting", image: require("../../../assets/gunting.png") },
+    { name: "kertas", image: require("../../../assets/kertas.png") },
   ];
 
   const getComputerChoice = () => {
@@ -78,7 +78,7 @@ const GameScreen = ({ navigation }) => {
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem("fullName");
-    navigation.replace("Login");
+    navigation.replace("Home");
   };
 
   return (

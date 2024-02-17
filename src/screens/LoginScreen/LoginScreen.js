@@ -63,7 +63,7 @@ const LoginScreen = () => {
     <View style={stylesLogin.container}>
       <View style={stylesLogin.background} />
       <Image
-        source={require("../../../assets/rock-paper-scissors.svg")}
+        source={require("../../../assets/rock-paper-scissors.png")}
         style={stylesLogin.imageSize}
         resizeMode="contain"
       />
