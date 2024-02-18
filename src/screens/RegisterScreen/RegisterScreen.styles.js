@@ -39,7 +39,7 @@ export const stylesRegister = {
     paddingHorizontal: 10,
     paddingVertical: 8,
     marginBottom: 10,
-    backgroundColor: "#E8F0FE", // Honeydew
+    backgroundColor: "#E8F0FE", 
   },
   loginText: {
     marginTop: 20,
