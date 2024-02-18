@@ -47,16 +47,13 @@ const LoginScreen = () => {
       console.log(response);
       await AsyncStorage.setItem("fullName", response.data.fullName);
       navigation.replace("Main");
-    }
-    catch (error) {
+    } catch (error) {
       if (error.response && error.response.status === 404) {
         Alert.alert("Invalid Email or Password");
-        alert("Invalid Email or Password")
       } else {
         Alert.alert("Error:", error.message);
       }
-    }
-    finally {
+    } finally {
       setLoading(false);
     }
   };
